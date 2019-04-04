@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Text, View, SafeAreaView } from "react-native";
+import { connect } from "react-redux";
 
+// COMPONENT
 import { moderateScale } from "../../utility/Scale";
 import Header from "./component/Header";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+// ACTION
+import { PostLogin } from "../../redux/actions/Login";
 
 class Login extends Component {
   state = {
@@ -14,6 +18,11 @@ class Login extends Component {
   static navigationOptions = {
     header: null
   };
+
+  async ActionLogin() {
+    await this.props.dispatch(PostLogin({ data: this.state }));
+    this.props.navigation.navigate("Register");
+  }
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -31,10 +40,7 @@ class Login extends Component {
             secureTextEntry
           />
           <View style={{ marginTop: moderateScale(10) }}>
-            <Button
-              title="login/regiser"
-              onPress={() => this.props.navigation.navigate("Register")}
-            />
+            <Button title="login/regiser" onPress={() => this.ActionLogin()} />
           </View>
         </View>
       </SafeAreaView>
@@ -42,4 +48,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect()(Login);
