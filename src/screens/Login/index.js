@@ -20,7 +20,7 @@ class Login extends Component {
   };
 
   async ActionLogin() {
-    await this.props.dispatch(PostLogin({ data: this.state }));
+    await this.props.onPostLogin({ data: this.state });
     this.props.navigation.navigate("Register");
   }
   render() {
@@ -47,5 +47,15 @@ class Login extends Component {
     );
   }
 }
+mapDispatchToProps = dispatch => {
+  return {
+    onPostLogin: data => {
+      dispatch(PostLogin(data));
+    }
+  };
+};
 
-export default connect()(Login);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);
