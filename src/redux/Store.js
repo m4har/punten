@@ -2,10 +2,12 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { logger } from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import Promise from "redux-promise-middleware";
+import createSagaMiddleware from "redux-saga";
 
 import Reducer from "./reducers";
+import { WatchPostLogin } from "./sagas/LoginSagas";
 
+const sagaMiddleware = createSagaMiddleware();
 // config persist
 const persistConfig = {
   key: "root",
@@ -16,7 +18,7 @@ const persistConfig = {
 // connect to redux dev tool
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const middleware = applyMiddleware(logger, Promise);
+const middleware = applyMiddleware(logger, sagaMiddleware);
 const persistedReducer = persistReducer(
   persistConfig,
   Reducer,
@@ -25,3 +27,4 @@ const persistedReducer = persistReducer(
 
 export const Store = createStore(persistedReducer, middleware);
 export const Persistor = persistStore(Store);
+sagaMiddleware.run(WatchPostLogin);

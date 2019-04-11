@@ -8,7 +8,7 @@ import Header from "./component/Header";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 // ACTION
-import { PostLogin } from "../../redux/actions/Login";
+import { postLoginAction } from "../../redux/actions/Login";
 
 class Login extends Component {
   state = {
@@ -20,8 +20,10 @@ class Login extends Component {
   };
 
   async ActionLogin() {
-    await this.props.onPostLogin({ data: this.state });
-    this.props.navigation.navigate("Register");
+    await this.props.postLoginAction({ data: this.state });
+     if (this.props.LoginProps.fetched === true) {
+      this.props.navigation.navigate("Register");
+    }
   }
   render() {
     return (
@@ -47,15 +49,18 @@ class Login extends Component {
     );
   }
 }
+const MapStateToProps = state => ({
+  LoginProps: state.Login
+});
 mapDispatchToProps = dispatch => {
   return {
-    onPostLogin: data => {
-      dispatch(PostLogin(data));
+    postLoginAction: data => {
+      dispatch(postLoginAction(data));
     }
   };
 };
 
 export default connect(
-  null,
+  MapStateToProps,
   mapDispatchToProps
 )(Login);

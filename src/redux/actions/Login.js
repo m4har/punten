@@ -1,11 +1,28 @@
-import Api from "../../utility/Api";
-
-export function PostLogin(data) {
+// dimulai saga
+export const fetchLoginAction = result => {
   return {
-    type: "LOGIN",
-    payload: Api.post("login", {
-      email: data.data.email,
-      password: data.data.password
-    })
+    type: "LOGIN_FETCH",
+    result
   };
-}
+};
+
+export const postLoginAction = dataLogin => {
+  return {
+    type: "LOGIN_POST",
+    dataLogin
+  };
+};
+//Action sent by Redux-saga
+export const fetchSuccessAction = result => {
+  return {
+    type: "LOGIN_SUCCESS",
+    result
+  };
+};
+
+export const fetchFailedAction = error => {
+  return {
+    type: "LOGIN_ERROR",
+    error
+  };
+};

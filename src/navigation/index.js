@@ -34,7 +34,6 @@ const DashboardStack = createBottomTabNavigator(
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        console.log(routeName);
         if (routeName === "Home") {
           iconName = `home${focused ? "" : ""}`;
         } else if (routeName === "News") {

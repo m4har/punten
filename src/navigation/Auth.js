@@ -4,7 +4,6 @@ import { View } from "react-native";
 
 class Auth extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     if (this.props.Register.data === "") {
       return this.props.navigation.navigate("Login");
     } else {

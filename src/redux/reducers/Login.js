@@ -1,5 +1,5 @@
 const InitialState = {
-  error: null,
+  error: '',
   fetching: false,
   fetched: false,
   data: ""
@@ -7,23 +7,14 @@ const InitialState = {
 
 const Login = (state = InitialState, action) => {
   switch (action.type) {
-    case "LOGIN_PENDING":
-      return { ...state, fetching: true, error: null };
-      break;
-    case "LOGIN_FULFILLED":
-      return {
-        ...state,
-        fetched: true,
-        fetching: false,
-        data: action.payload.data
-      };
-      break;
-    case "LOGIN_REJECTED":
-      return { ...state, fetching: false, error: action.payload };
-      break;
+    case "LOGIN_POST":
+    return{...state, fetching:true}
+    case "LOGIN_SUCCESS":
+      return{...state, data:action.result.data.token, fetched:true, error:null, fetching:false}
+    case "LOGIN_ERROR":
+      return {...state, error:action.error};
     default:
       return state;
-      break;
   }
 };
 
