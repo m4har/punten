@@ -1,9 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { View } from "react-native";
+import firebase from "react-native-firebase";
 
 class Auth extends React.Component {
   componentDidMount() {
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then(user => {
+        console.log(user);
+      });
+
     if (this.props.Register.data === "") {
       return this.props.navigation.navigate("Login");
     } else {

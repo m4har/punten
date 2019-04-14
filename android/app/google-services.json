@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "409799458337",
+    "firebase_url": "https://mahar-dcbe2.firebaseio.com",
+    "project_id": "mahar-dcbe2",
+    "storage_bucket": "mahar-dcbe2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409799458337:android:9750b185428fec5c",
+        "android_client_info": {
+          "package_name": "com.kirito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409799458337-adoc6v0fk7hhmhgopos1p459d0iuprou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5QSdrRBqwvKVly5aVO83CytrMGjInU44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409799458337-adoc6v0fk7hhmhgopos1p459d0iuprou.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "409799458337-tuucbpqem7pet13he3b1odlbe20urbia.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.kirito"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
