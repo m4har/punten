@@ -33,7 +33,11 @@ const InputPhone = ({ onChangeText } = this.props) => {
         <Text style={{ fontSize: FS(3) }}>+62</Text>
       </TouchableOpacity>
       <TextInput
-        style={{ fontSize: FS(3), width: "90%" }}
+        style={{
+          fontSize: FS(3),
+          width: "90%",
+          paddingLeft: moderateScale(5)
+        }}
         placeholder="0811111"
         onChangeText={onChangeText}
         keyboardType="number-pad"

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { moderateScale } from "../../utility/Scale";
 import HeaderPhone from "./component/HeaderPhone";
 import InputPhone from "./component/InputPhone";
@@ -11,7 +11,7 @@ class Phone extends React.Component {
   };
   render() {
     return (
-      <View
+      <SafeAreaView
         style={{
           flex: 1,
           justifyContent: "space-between"
@@ -20,7 +20,7 @@ class Phone extends React.Component {
         <HeaderPhone />
         <InputPhone />
         <ButtonPhone />
-      </View>
+      </SafeAreaView>
     );
   }
 }
