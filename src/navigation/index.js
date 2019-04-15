@@ -8,8 +8,12 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // DATA SCREEN
+// Register/login
 import Login from "../screens/Login";
 import Register from "../screens/Register";
+import Phone from "../screens/Login/Phone";
+
+// dashboard
 import Home from "../screens/Home";
 import News from "../screens/News";
 import Profile from "../screens/Profile";
@@ -19,7 +23,8 @@ import AuthLoad from "./Auth";
 // STACK LOGIN / REGISTER
 const AuthStack = createStackNavigator({
   Login,
-  Register
+  Register,
+  Phone
 });
 
 // STACK DASHBOARD COMPONENT

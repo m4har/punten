@@ -21,7 +21,7 @@ class Login extends Component {
 
   async ActionLogin() {
     await this.props.postLoginAction({ data: this.state });
-     if (this.props.LoginProps.fetched === true) {
+    if (this.props.LoginProps.fetched === true) {
       this.props.navigation.navigate("Register");
     }
   }
@@ -43,6 +43,16 @@ class Login extends Component {
           />
           <View style={{ marginTop: moderateScale(10) }}>
             <Button title="login/regiser" onPress={() => this.ActionLogin()} />
+          </View>
+          <View
+            style={{
+              marginTop: moderateScale(10)
+            }}
+          >
+            <Button
+              title="Login With Phone"
+              onPress={() => this.props.navigation.navigate("Phone")}
+            />
           </View>
         </View>
       </SafeAreaView>
