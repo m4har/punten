@@ -19,15 +19,21 @@ class Login extends Component {
     header: null
   };
 
-  async ActionLogin() {
-    await this.props.postLoginAction({ data: this.state });
-    if (this.props.LoginProps.fetched === true) {
-      this.props.navigation.navigate("Register");
+  ActionLogin() {
+    this.props.postLoginAction({
+      data: this.state,
+      navigation: this.props.navigation
+    });
+  }
+  testError() {
+    if (this.props.LoginProps.error !== "") {
+      return console.log("ereeeerrr");
     }
   }
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
+        {this.testError()}
         <View style={{ flex: 1, paddingLeft: 10, paddingRight: 10 }}>
           <Header />
           <Input
