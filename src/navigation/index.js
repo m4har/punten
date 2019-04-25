@@ -17,6 +17,7 @@ import Phone from "../screens/Login/Phone";
 import Home from "../screens/Home";
 import News from "../screens/News";
 import Profile from "../screens/Profile";
+import DetailNews from "../screens/News/DetailNews";
 // AUTH PROGRESS
 import AuthLoad from "./Auth";
 
@@ -57,20 +58,29 @@ const DashboardStack = createBottomTabNavigator(
 );
 
 // SWITCH NAVIGATOR
-const AppNavigator = createSwitchNavigator(
+const SwitchNavigator = createSwitchNavigator(
   {
     AuthLoad,
     AuthStack,
-    DashboardStack: {
-      screen: DashboardStack,
-      navigationOptions: {
-        header: null
-      }
-    }
+    DashboardStack
   },
   {
     initialRouteName: "AuthLoad"
   }
 );
-
+// ROOT ROUTE
+const AppNavigator = createStackNavigator(
+  {
+    SwitchNavigator: {
+      screen: SwitchNavigator,
+      navigationOptions: {
+        header: null
+      }
+    },
+    DetailNews
+  },
+  {
+    initialRouteName: "SwitchNavigator"
+  }
+);
 export default createAppContainer(AppNavigator);
