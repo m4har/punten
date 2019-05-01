@@ -27,13 +27,10 @@ class DetailNews extends React.Component {
   };
   render() {
     return (
-      <AndroidBackHandler onBackPress={this.handleBack}>
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <Text>Detail News</Text>
-        </View>
-      </AndroidBackHandler>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <AndroidBackHandler onBackPress={this.handleBack} />
+        <Text>Detail News</Text>
+      </View>
     );
   }
 }
